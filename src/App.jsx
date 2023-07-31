@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="w-full min-h-screen bg-red-500">
       <header className="h-[87px] bg-red-200 flex justify-center items-center">
-        esto va a ser la barra de navegaciónn
+        esto va a ser la barra de navegaciónnn
       </header>
       {/* {console.log(nombre2)} */}
       {/* esto es un comentario */}
