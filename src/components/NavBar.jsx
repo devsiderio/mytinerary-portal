@@ -1,10 +1,17 @@
+import { Link } from "react-router-dom";
+
 export default function NavBar() {
   return (
-    <header className="self-stretch justify-between items-center flex">
-      <div className="text-zinc-900 text-[32px] font-bold ">My Tinerary</div>
+    <header className="self-stretch justify-between items-center flex  px-80 w-full">
+      <div className="text-zinc-900 text-[32px] font-bold ">MyTinerary</div>
       <div className="justify-center items-center gap-8 flex">
-        <div className="text-zinc-900 text-2xl font-bold">Home</div>
-        <div className="text-zinc-900 text-2xl font-bold">Cities</div>
+        <Link to="/">
+          <div className="text-zinc-900 text-2xl font-bold">Home</div>
+        </Link>
+        <Link to="/cities">
+          <div className="text-zinc-900 text-2xl font-bold">Cities</div>
+        </Link>
+
         <div className="px-8 py-4 bg-indigo-600 rounded-[10px] justify-center items-center gap-2.5 flex">
           <div className="w-[21px] h-5 relative">
             <svg

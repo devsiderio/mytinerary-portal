@@ -1,12 +1,10 @@
 import Home from "./pages/Home";
-import MainLayout from "./layouts/MainLayout";
+import NavLayout from "./layouts/NavLayout";
 
-function App() {
+export default function App() {
   return (
-    <MainLayout>
+    <NavLayout>
       <Home />
-    </MainLayout>
+    </NavLayout>
   );
 }
-
-export default App;

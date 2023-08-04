@@ -30,13 +30,13 @@ export default function Home() {
   ];
 
   return (
-    <main className="grow flex flex-col items-center justify-center">
-      <div className="self-stretch justify-between items-center gap-[235px] inline-flex">
+    <main className="grow flex flex-col items-center justify-center max-w-7xl w-full px-80 ">
+      <div className="self-stretch justify-between items-center inline-flex">
         <div className="w-[742px] flex-col justify-center items-start gap-10 inline-flex">
-          <div className="self-stretch text-zinc-900 text-5xl font-bold">
+          <div className="self-stretch text-zinc-900 text-5xl font-bold flex">
             Find the perfect destination
           </div>
-          <div className="w-[628px] text-zinc-900 text-opacity-60 text-2xl font-semibold">
+          <div className="w-[628px] text-zinc-900 text-opacity-60 text-2xl font-semibold flex">
             Our app will help you find the perfect path for your next trip. With
             an easy-to-use interface and a host of itinerary options, planning
             your next trip has never been easier.
@@ -46,9 +46,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center">
+        <div className="flex flex-row justify-center items-center mx-50">
           <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" />
-          <div className="flex w-11/12 flex-wrap justify-center mt-5">
+          <div className="flex flex-wrap justify-center">
             {data.slice(12, 16).map((each, index) => (
               <CardPolaroid
                 key={index}
