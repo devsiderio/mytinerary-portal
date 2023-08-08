@@ -1,10 +1,11 @@
 import NavBar from "../components/NavBar";
+import { Outlet } from "react-router-dom";
 
-export default function NavLayout({ children }) {
+export default function NavLayout() {
   return (
-    <div className="w-full min-h-screen justify-center pt-8 bg-white flex flex-col mx-auto">
-      <NavBar className="flex" />
-      <main className="flex-1">{children}</main>
+    <div className="flex flex-col min-h-screen bg-white mx-auto">
+      <NavBar />
+      <Outlet />
     </div>
   );
 }

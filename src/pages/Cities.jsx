@@ -1,7 +1,7 @@
 export default function Cities() {
   return (
-    <div className="flex justify-center items-center pt-[200px]">
+    <h2 className="flex justify-center text-2xl font-bold text-indigo-600">
       Section under construction...
-    </div>
+    </h2>
   );
 }

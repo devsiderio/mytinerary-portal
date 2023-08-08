@@ -1,13 +1,13 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { Outlet } from "react-router-dom";
 
-export default function MainLayout({ children }) {
-  console.log(children);
+export default function MainLayout() {
   return (
-    <div className="w-full min-h-screen justify-center pt-8 bg-white flex flex-col mx-auto">
-      <NavBar className="flex" />
-      <main className="flex-1">{children}</main>
-      <Footer className="w-full flex flex-col h-48 bg-black" />
+    <div className="flex flex-col min-h-screen bg-white mx-auto">
+      <NavBar />
+      <Outlet />
+      <Footer />
     </div>
   );
 }
