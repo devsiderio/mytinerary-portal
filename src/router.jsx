@@ -8,7 +8,6 @@ import MainLayout from "./layouts/MainLayout";
 import NotFound from "./pages/NotFound";
 import Itineraries from "./pages/Itineraries";
 import NavLayout from "./layouts/NavLayout";
-import NavBar from "./components/NavBar";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +29,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/index", element: <Home /> },
       { path: "/home", element: <Home /> },
+      { path: "/itineraries", element: <Itineraries /> },
       { path: "/cities", element: <Cities /> },
       { path: "/city-detail/:city", element: <CityDetail /> },
       { path: "/*", element: <NotFound /> },

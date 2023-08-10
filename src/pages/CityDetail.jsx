@@ -22,9 +22,9 @@ export default function CityDetail() {
   }, [data]);
 
   return (
-    <div>
-      <h1>{city}</h1>
-      <p>{data.description}</p>
+    <div className="flex flex-col m-8 grow items-center justify-center">
+      <h1 className="text-2xl font-bold text-indigo-600">{city}</h1>
+      <p className="max-w-4xl mt-4">{data.description}</p>
     </div>
   );
 }
