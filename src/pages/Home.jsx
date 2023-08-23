@@ -2,13 +2,22 @@ import { Link as Anchor } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Carousel from "../components/Carousel";
 import axios from "axios";
+import apiUrl from "../apiUrl.js";
 
 export default function Home() {
   const [data, setData] = useState([]);
+  const [carouselLoading, setCarouselLoading] = useState(true);
+
   useEffect(() => {
-    axios("/cities.json")
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+    axios(apiUrl + "cities/carousel")
+      .then((res) => {
+        setData(res.data.data_carousel);
+        setCarouselLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setCarouselLoading(false);
+      });
   }, []);
 
   return (
@@ -27,10 +36,18 @@ export default function Home() {
       </div>
       <div className="self-stretch items-center flex-col my-20">
         <div className="flex-col md:flex-col mb-16">
-          <div className="self-stretch text-zinc-900 text-2xl md:text-3xl font-bold flex justify-center">
+          <div className="self-stretch text-zinc-900 text-2xl md:text-3xl font-bold flex justify-center mb-4">
             Popular MyTineraries!
           </div>
-          <Carousel data={data} />
+          <div className="flex justify-center items-center h-96">
+            {carouselLoading ? (
+              <p className="text-2xl font-semibold text-indigo-600 animate-bounce">
+                Loading carousel... 🎠
+              </p>
+            ) : (
+              <Carousel data={data} />
+            )}
+          </div>
         </div>
         <div className="w-full flex-col justify-center gap-10 inline-flex mt-20 mb-4">
           <div className="self-stretch text-zinc-900 justify-center text-3xl md:text-4xl font-bold flex">
