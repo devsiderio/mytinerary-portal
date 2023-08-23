@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Carousel({ data }) {
   let [counter, setCounter] = useState(0);
   let [counterTo, setCounterTo] = useState(4);
+
   function next_slide() {
     if (data.length <= counterTo) {
       setCounter(0);
@@ -31,13 +32,13 @@ export default function Carousel({ data }) {
     <div className="flex justify-center items-center">
       <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" onClick={prev_slide} />
       <div className="flex w-11/12 flex-wrap justify-center mt-5">
-        {data.slice(counter, counterTo).map((each, index) => (
+        {data.slice(counter, counterTo).map((each) => (
           <CardPolaroid
-            key={index}
+            key={each._id}
             src={each.photo}
-            alt={each.smalldescription}
-            country={each.country}
-            city={each.city}
+            alt={each._id}
+            text={each.city}
+            id={each._id}
           />
         ))}
       </div>

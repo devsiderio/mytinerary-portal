@@ -1,30 +1,29 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import apiUrl from "../apiUrl";
+import CardCityDetail from "../components/CardCityDetail";
 
 export default function CityDetail() {
-  const [data, setData] = useState({});
-  const { city } = useParams();
+  const id = useParams();
+  const [city, setCity] = useState([]);
 
   useEffect(() => {
-    const fetchData = () => {
-      axios
-        .get("/cities.json")
-        .then((response) => {
-          const data = response.data.find((c) => c.city === city);
-          setData(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    fetchData();
-  }, [data]);
+    axios(apiUrl + "cities/" + id.city_id)
+      .then((res) => {
+        setCity(res.data.response);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div className="flex flex-col m-8 grow items-center justify-center">
-      <h1 className="text-2xl font-bold text-indigo-600">{city}</h1>
-      <p className="max-w-4xl mt-4">{data.description}</p>
+      <CardCityDetail
+        photo={city.photo}
+        city={city.city}
+        country={city.country}
+        descr={city.description}
+      />
     </div>
   );
 }
