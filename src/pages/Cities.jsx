@@ -39,11 +39,11 @@ export default function Cities() {
       <div className="mb-3">
         <input
           ref={text}
-          type="search"
+          type="text"
           className="w-full flex-auto rounded border border-solid border-indigo-400 bg-transparent px-4 py-2 leading-[1.6] text-blue-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-blue-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-blue-600 dark:text-neutral-200 dark:placeholder:text-blue-200 dark:focus:border-primary"
-          name="text"
+          name="search"
           placeholder="Search..."
-          id="text"
+          id="search"
           onKeyUp={handleFilter}
         />
       </div>
