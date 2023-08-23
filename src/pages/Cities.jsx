@@ -57,7 +57,7 @@ export default function Cities() {
             <CardCity
               key={each._id}
               src={each.photo}
-              alt={each._id}
+              alt={each.city}
               text={each.city}
               id={each._id}
             />
