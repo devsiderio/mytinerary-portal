@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex gap-4">
           <p className="text-1xl font-semi-bold">About Us</p>
           <p className="text-1xl font-semi-bold">Contact</p>
-          <Anchor to="/Cities" className="text-1xl font-semi-bold">
+          <Anchor to="/cities" className="text-1xl font-semi-bold">
             Cities
           </Anchor>
         </div>

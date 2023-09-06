@@ -1,34 +1,23 @@
 import { useState, useEffect, useRef } from "react";
-import axios from "axios";
-import apiUrl from "../apiUrl";
 import CardCity from "../components/CardCity";
+import { useSelector, useDispatch } from "react-redux";
+import city_actions from "../store/actions/cities";
+const { read_cities, setLoading } = city_actions;
 
 export default function Cities() {
-  const [cities, setCities] = useState([]);
+  const cities = useSelector((store) => store.cities.cities);
+  const isLoading = useSelector((store) => store.cities.loading);
   const [reEffect, setReEffect] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
   const text = useRef();
 
   useEffect(() => {
-    setLoading(true);
-    const searchText = text.current.value.trim();
-    axios(apiUrl + "cities?city=" + searchText)
-      .then((res) => {
-        setCities(res.data.response);
-        setLoading(false);
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 404) {
-          setCities([]);
-        } else {
-          console.log(error);
-        }
-        setLoading(false);
-      });
+    dispatch(setLoading(true));
+    dispatch(read_cities({ text: text.current?.value }));
   }, [reEffect]);
-
   function handleFilter() {
-    console.log(text.current.value);
+    dispatch(setLoading(true));
+    console.log(text.current?.value);
     setReEffect(!reEffect);
   }
 
@@ -41,18 +30,29 @@ export default function Cities() {
           ref={text}
           type="text"
           className="w-full flex-auto rounded border border-solid border-indigo-400 bg-transparent px-4 py-2 leading-[1.6] text-blue-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-blue-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-blue-600 dark:text-neutral-200 dark:placeholder:text-blue-200 dark:focus:border-primary"
-          name="search"
+          name="text"
           placeholder="Search..."
-          id="search"
+          id="text"
           onKeyUp={handleFilter}
         />
       </div>
       <div className="flex flex-row flex-wrap items-center justify-center mt-10">
-        {loading ? (
-          <p className="text-2xl flex justify-center items-center h-[60vh] font-semibold text-indigo-600 mb-4 animate-bounce">
+        {isLoading ? (
+          <p className="text-2xl flex justify-center items-center mt-40 font-semibold text-indigo-600 mb-4 animate-bounce">
             Loading cities... 🌁
           </p>
-        ) : cities.length > 0 ? (
+        ) : cities.length === 0 ? (
+          <div className="flex-col flex justify-center items-center mt-10">
+            <h2 className="text-4xl font-bold text-center text-indigo-600 mb-4">
+              We couldn't find that city!
+            </h2>
+            <h2 className="text-6xl my-3">🦆</h2>
+            <p className="text-center p-4">
+              Try searching something different...
+            </p>
+            <h4 className="text-4xl">🏞️✨</h4>
+          </div>
+        ) : (
           cities.map((each) => (
             <CardCity
               key={each._id}
@@ -62,13 +62,6 @@ export default function Cities() {
               id={each._id}
             />
           ))
-        ) : (
-          <div className="flex-col flex justify-center items-center mt-10">
-            <h2 className="text-4xl font-bold text-indigo-600 mb-4">
-              We couldn't find that city! 🦆
-            </h2>
-            <p>Try searching something different 🏞️✨</p>
-          </div>
         )}
       </div>
     </div>
