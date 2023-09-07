@@ -84,6 +84,7 @@ export default function CardCityDetail({ photo, country, city, descr, id }) {
                     src={each.photo}
                     alt={each.name}
                     text={each.name}
+                    user={each.city_id.admin_id}
                     tags={each.tags}
                     duration={each.duration}
                     price={each.price}
