@@ -16,7 +16,7 @@ export default function CityDetail() {
   }, []);
 
   return (
-    <div className="flex flex-col m-8 grow items-center justify-center">
+    <div className="flex flex-col flex-grow items-center justify-center">
       <CardCityDetail
         photo={city.photo}
         city={city.city}
