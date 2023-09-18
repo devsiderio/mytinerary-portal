@@ -1,3 +1,3 @@
-let apiUrl = "http://localhost:8080/api/";
+let apiUrl = import.meta.env.VITE_URL_BACK;
 
 export default apiUrl;
