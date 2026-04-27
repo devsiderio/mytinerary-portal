@@ -23,11 +23,9 @@ Aplicación web para descubrir, crear y compartir itinerarios de viaje por ciuda
 
 - **Exploración** — Navegación de ciudades con cards interactivas y detalles completos
 - **Itinerarios** — Visualización de planes de viaje con actividades, precios estimados, duración y tags
-- **Interacción social** — Sistema de likes y comentarios en tiempo real
-- **Gestión de contenido** — Creación y edición de itinerarios propios (usuarios logueados)
 - **Autenticación** — Login tradicional con JWT (mail/contraseña)
-- **Perfil de usuario** — Edición de datos personales y avatar
-- **Filtros avanzados** — Búsqueda por ciudad y filtrado por precio/duración
+- **Creación de usuario** — Carga de datos personales y avatar
+- **Filtros** — Búsqueda por ciudad
 - **Responsive** — Optimizado para mobile, tablet y desktop
 
 ---
