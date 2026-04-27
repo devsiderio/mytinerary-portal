@@ -2,8 +2,10 @@
 
 Aplicación web para descubrir, crear y compartir itinerarios de viaje por ciudades del mundo.
 
-**🔗 Demo en vivo:** [https://mytinerary-portal.vercel.app](https://mytinerary-portal.vercel.app)
+**🔗 Demo en vivo:** [https://mytinerary-portal.vercel.app](https://mytinerary-portal.vercel.app)  
+
 **🔗 Backend asociado:** [https://github.com/devsiderio/mytinerary-back-portal](https://github.com/devsiderio/mytinerary-back-portal)  
+
 ---
 
 ## 🚀 Tecnologías
