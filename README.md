@@ -63,6 +63,10 @@ VITE_URL_BACK=https://tu-api-backend.onrender.com/api/
     Para desarrollo local, asegurate de tener el backend corriendo en http://localhost:8080
     En el deploy en Vercel/Netlify, configurá VITE_URL_BACK apuntando a tu backend deployado (Render/Railway/etc)
 
+## Bash
+```
+npm run dev
+```
 
 ## Autor
 
